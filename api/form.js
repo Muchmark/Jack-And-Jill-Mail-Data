@@ -44,7 +44,7 @@ router.post("/", (req, res) => {
              <p>Email:<span style="font-weight:500">${req.body.email}</span></p>
              <p>Message:<span style="font-weight:500">${req.body.content}</span></p>
              </div>
-                <img src="http://jackandjill.online/jackandjill-offer/assets/img/christmas_offer.jpg" alt="" style="height: 100%; width: 100%"/>
+                <img src="http://jackandjill.online/jackandjill-offer/assets/img/christmas_offer.jpg"/>
              </div>`,
             subject: `Received New From ${req.body.name}`,
         });
