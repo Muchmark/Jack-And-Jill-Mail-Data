@@ -4,7 +4,19 @@ const cors = require("cors")
 const port = process.env.PORT || 3030
 const mongoose = require("mongoose")
 const form = require("./api/form")
-app.use(cors())
+const corsOpts = {
+    origin: '*',
+
+    methods: [
+        'GET',
+        'POST',
+    ],
+
+    allowedHeaders: [
+        'Content-Type',
+    ],
+};
+app.use(cors(corsOpts));
 app.use(express.json())
 const connection = "mongodb+srv://Muchmark:mLlrGljRs180tAAS@cluster0.irij3nk.mongodb.net/jackandjill?retryWrites=true&w=majority"
 
