@@ -44,7 +44,6 @@ router.post("/", (req, res) => {
              <p>Email:<span style="font-weight:500">${req.body.email}</span></p>
              <p>Message:<span style="font-weight:500">${req.body.content}</span></p>
              </div>
-                <img src="http://jackandjill.online/jackandjill-offer/assets/img/christmas_offer.jpg"/>
              </div>`,
             subject: `Received New From ${req.body.name}`,
         });
@@ -52,7 +51,7 @@ router.post("/", (req, res) => {
         //create new entry and save to mongodb
         let useData = new Model(req.body)
         useData.save().then((doc) => {
-            res.json({ status: 200, message: "mail sent succesfully..." })
+            res.json({ status: 200, message: "Mail sent succesfully..." })
         }).catch((err) => {
 
         })
