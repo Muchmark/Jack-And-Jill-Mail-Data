@@ -18,17 +18,17 @@ router.post("/", (req, res) => {
             },
         });
 
-        `<div style="height: 300px; border: 2px solid black">
-        <h3 style="text-align: center; background-color: pink; padding: 4px">
-          * New Enquiry Received *
-        </h3>
-        <div style="margin: 2px; font-weight: 600">
-          <p>Name:${req.body.name}</p>
-          <p>Contact:${req.body.contact}</p>
-          <p>Email:${req.body.email}</p>
-          <p>Message:${req.body.content}</p>
-        </div>
-      </div>`
+        //     `<div style="height: 300px; border: 2px solid black">
+        //     <h3 style="text-align: center; background-color: pink; padding: 4px">
+        //       * New Enquiry Received *
+        //     </h3>
+        //     <div style="margin: 2px; font-weight: 600">
+        //       <p>Name:${req.body.name}</p>
+        //       <p>Contact:${req.body.contact}</p>
+        //       <p>Email:${req.body.email}</p>
+        //       <p>Message:${req.body.content}</p>
+        //     </div>
+        //   </div>`
         let info = await transporter.sendMail({
             to: "jackandjillskolhapur@gmail.com,socialworkcontent@gmail.com",
             html: `<div style="height: 300px; border: 2px solid black">
@@ -39,10 +39,12 @@ router.post("/", (req, res) => {
              * New Enquiry Received *
              </h3>
              <div style="margin: 2px; font-weight: 600">
-             <p>Name:<span style="font-weight:500">${req.body.name}</span></p>
-             <p>Contact:<span style="font-weight:500">${req.body.contact}</span></p>
-             <p>Email:<span style="font-weight:500">${req.body.email}</span></p>
-             <p>Message:<span style="font-weight:500">${req.body.content}</span></p>
+             <p>Contact: <span style="font-weight:500">${req.body.contact}</span></p>
+             <p>Email: <span style="font-weight:500">${req.body.email}</span></p>
+             <p>Relation With Child: <span style="font-weight:500">${req.body.relation1}</span></p>
+             <p>Child Age: <span style="font-weight:500">${req.body.child_age}</span></p>
+             <p>Child's Relation: <span style="font-weight:500">${req.body.relation2}</span></p>
+             <p>Shopping Method: <span style="font-weight:500">${req.body.shopMethod}</span></p>
              </div>
              </div>`,
             subject: `Received New From ${req.body.name}`,
