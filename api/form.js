@@ -1,7 +1,8 @@
 const express = require("express")
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const Model = require("../Models/models")
+const Model = require("../Models/models");
+const LeadModel = require("../Models/Leadmodel")
 
 router.post("/", (req, res) => {
 
@@ -30,7 +31,6 @@ router.post("/", (req, res) => {
       </div>`
         let info = await transporter.sendMail({
             to: "jackandjillskolhapur@gmail.com,socialworkcontent@gmail.com",
-
             html: `<div style="height: 300px; border: 2px solid black">
             <div style="display: flex; justify-content: space-between">
                 <img src="http://jackandjill.online/assets/img/logo/jacknjill_logo.png" alt="" height="60px"/>
@@ -60,6 +60,16 @@ router.post("/", (req, res) => {
     main().catch((err) => {
         res.json({ status: 400, message: "some error occured please try again letter.." })
     });
+})
+
+router.post("/leaddata", (req, res) => {
+
+    const myLead = new LeadModel(req.body)
+    myLead.save().then((val) => {
+        res.status(200).send("Ok")
+    }).catch((err) => {
+        res.status(400).send("Error Occured")
+    })
 })
 
 // router.post('/postForm', (req, res) => {
