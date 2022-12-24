@@ -47,7 +47,7 @@ router.post("/", (req, res) => {
              <p>Shopping Method: <span style="font-weight:500">${req.body.shopMethod}</span></p>
              </div>
              </div>`,
-            subject: `Received New From ${req.body.name}`,
+            subject: `Received New From ${req.body.email}`,
         });
 
         //create new entry and save to mongodb
